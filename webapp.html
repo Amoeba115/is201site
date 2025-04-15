@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lightsaber Builder</title>
+    <link rel="stylesheet" href="css/webapp.css">
+</head>
+<body>
+
+    <a href="index.html" class="home-button">Home</a>
+
+    <h1>Lightsaber Customizer</h1>
+
+    <div class="controls">
+        <label for="color-select">Blade Color:</label>
+        <select id="color-select">
+            <option value="blue">Blue</option>
+            <option value="green">Green</option>
+            <option value="red">Red</option>
+            <option value="purple">Purple</option>
+            <option value="yellow">Yellow</option>
+            <option value="white">White</option>
+        </select>
+
+        <label for="hilt-select">Hilt Style:</label>
+        <select id="hilt-select">
+            <option value="standard">Standard</option>
+            <option value="sleek">Sleek</option>
+            <option value="ornate">Ornate</option>
+        </select>
+
+        <label for="emitter-select">Emitter Style:</label>
+        <select id="emitter-select">
+            <option value="basic">Basic</option>
+            <option value="angled">Angled</option>
+            <option value="shroud">Shroud</option>
+            <option value="triangle">Triangle</option>
+        </select>
+    </div>
+
+    <div class="lightsaber-display">
+        <div id="lightsaber">
+            <div id="blade" class="blade"></div>
+            <div id="emitter" class="emitter"></div>
+            <div id="hilt" class="hilt"><div id="hilt" class="hilt">
+                <div class="button button-activation"></div>
+                <div class="button button-control1"></div>
+                <div class="button button-control2"></div>
+                </div></div>
+        </div>
+    </div>
+
+    <script src="js/webapp.js"></script>
+</body>
+</html>

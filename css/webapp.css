@@ -1,0 +1,236 @@
+/* style.css - Combined with Hilt Buttons */
+
+/* --- Home Button Style (NEW) --- */
+.home-button {
+    position: fixed; /* Keeps it fixed relative to the viewport */
+    top: 30px;       /* Distance from the top edge */
+    right: 50px;      /* Distance from the right edge */
+    z-index: 1000;    /* Ensures it stays on top of other content */
+
+    /* Button Styling */
+    display: inline-block; /* Allows padding and keeps it inline-ish */
+    padding: 8px 15px;    /* Vertical and horizontal padding */
+    background-color: #4a7dcb; /* A nice blue background */
+    color: white;            /* White text */
+    text-decoration: none;   /* Remove underline from link */
+    font-weight: bold;
+    font-size: 0.9em;
+    border: none;            /* No border */
+    border-radius: 5px;      /* Rounded corners */
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2); /* Subtle shadow */
+    cursor: pointer;         /* Indicate it's clickable */
+    transition: background-color 0.2s ease; /* Smooth hover effect */
+}
+
+.home-button:hover {
+    background-color: #3a67a9; /* Darker blue on hover */
+}
+
+/* Optional: Add some padding to the body's top to prevent */
+/* the main H1 from potentially overlapping with the fixed button */
+/* Adjust value as needed based on button size and positioning */
+body {
+    /* ... keep existing body styles ... */
+    padding-top: 60px; /* Increased top padding */
+}
+
+/* Adjust H1 margin if needed after adding body padding */
+h1 {
+    margin-top: 0; /* Reset default H1 margin if body padding handles spacing */
+}
+
+body {
+    font-family: sans-serif;
+    background-color: #222;
+    color: #eee;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+}
+
+.controls {
+    background-color: #333;
+    padding: 20px;
+    border-radius: 8px;
+    margin-bottom: 30px;
+    display: flex;
+    gap: 20px; /* Adds space between controls */
+    align-items: center;
+}
+
+.controls label {
+    margin-right: 5px;
+}
+
+.controls select {
+    padding: 5px;
+    border-radius: 4px;
+    border: 1px solid #555;
+    background-color: #444;
+    color: #eee;
+}
+
+.lightsaber-display {
+    text-align: center;
+}
+
+#lightsaber {
+    margin-top: 20px;
+    /* Use flexbox to stack parts vertically and center them */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* --- Base Styles for Parts --- */
+.blade {
+    width: 15px;
+    height: 300px; /* Blade length */
+    background-color: white; /* Default/initial color */
+    border-radius: 5px 5px 0 0; /* Rounded top */
+    box-shadow: 0 0 10px 5px white; /* Default glow */
+    transition: background-color 0.3s ease, box-shadow 0.3s ease; /* Smooth transitions */
+}
+
+.emitter {
+    width: 25px;
+    height: 30px;
+    background-color: #aaa; /* Silver-ish */
+    border: 1px solid #555;
+    border-bottom: none; /* Connects smoothly to hilt */
+    box-sizing: border-box; /* Include border in width/height */
+    transition: all 0.3s ease; /* Smooth transitions for style changes */
+    position: relative; /* Needed if adding pseudo-elements later */
+    z-index: 5; /* Ensure emitter is visually above hilt decorations */
+}
+
+.hilt {
+    width: 35px;
+    height: 150px; /* Hilt length */
+    background-color: #444; /* Dark grey */
+    border: 1px solid #111;
+    border-top: none;
+    border-radius: 0 0 5px 5px; /* Slightly rounded bottom */
+    box-sizing: border-box;
+    transition: all 0.3s ease; /* Smooth transitions */
+
+    /* --- Modifications for Buttons --- */
+    position: relative; /* Needed for absolute positioning of children (buttons) */
+    display: flex; /* Use flexbox for alignment */
+    flex-direction: column; /* Stack flex items vertically */
+    align-items: center; /* Center flex items (like buttons) horizontally */
+    padding-top: 15px; /* Add space at the top for buttons */
+}
+
+/* --- Color Styles --- */
+.blade.color-blue { background-color: #00f; box-shadow: 0 0 15px 7px #66f; }
+.blade.color-green { background-color: #0f0; box-shadow: 0 0 15px 7px #6f6; }
+.blade.color-red { background-color: #f00; box-shadow: 0 0 15px 7px #f66; }
+.blade.color-purple { background-color: #a0f; box-shadow: 0 0 15px 7px #c6f; }
+.blade.color-yellow { background-color: #ff0; box-shadow: 0 0 15px 7px #ff6; }
+.blade.color-white { background-color: #fff; box-shadow: 0 0 15px 7px #eee; }
+
+
+/* --- Hilt Styles --- */
+.hilt.hilt-standard { background-color: #444; border-color: #111; width: 35px;}
+.hilt.hilt-sleek { background-color: #222; border-color: #555; width: 30px; }
+.hilt.hilt-ornate { background: linear-gradient(#555, #333); border: 2px solid gold; border-top: none; width: 40px; }
+
+/* --- Emitter Styles --- */
+.emitter.emitter-basic { background-color: #aaa; height: 30px; width: 25px; border-color: #555; transform: none; border-radius: 0;}
+.emitter.emitter-angled { background-color: #bbb; height: 35px; width: 28px; transform: perspective(50px) rotateX(10deg); border-color: #666; border-radius: 0; }
+.emitter.emitter-shroud { background-color: #999; height: 40px; width: 30px; border: 2px solid #444; border-bottom: 3px solid #222; border-radius: 5px 5px 0 0; transform: none;}
+/* --- NEW Triangle Emitter Style --- */
+.emitter.emitter-triangle {
+    background-color: #b0b0b0; /* Slightly different grey */
+    width: 35px;  /* Base width */
+    height: 35px; /* Height */
+    border: none; /* Remove border as clip-path will cut it off */
+    border-radius: 0; /* Ensure no rounding */
+    transform: none; /* Ensure no transform */
+    /* Clip the element into a right triangle */
+    /* polygon(x1 y1, x2 y2, x3 y3, ...) */
+    /* Points: Top-Left (0% 0%), Top-Right (100% 0%), Bottom-Left (0% 100%) */
+    /* This makes the hypotenuse run along the top edge */
+    clip-path: polygon(100% 0%, 0% 100%, 100% 100%);
+}
+
+
+/* --- Button Styles (NEW) --- */
+.button {
+    position: absolute; /* Position relative to the hilt */
+    width: 10px;
+    height: 10px;
+    background-color: #f00; /* Default: Red button */
+    border: 1px solid #500;
+    border-radius: 50%; /* Make it circular */
+    z-index: 1; /* Ensure buttons are on top of hilt background */
+    box-shadow: inset 1px 1px 2px rgba(0,0,0,0.5); /* Subtle inset shadow */
+}
+
+/* Position individual buttons */
+.button-activation {
+    /* Centered via flexbox 'align-items: center' on parent hilt */
+    top: 20px; /* Distance from the top padding edge of the hilt */
+    background-color: #d4af37; /* Gold-ish */
+    border-color: #a08020;
+    width: 12px; /* Make activation bigger */
+    height: 12px;
+}
+
+.button-control1 {
+    top: 45px;
+    left: 5px; /* Position relative to hilt left edge */
+    background-color: #777;
+    border-color: #333;
+    width: 8px;
+    height: 8px;
+}
+
+.button-control2 {
+    top: 45px;
+    right: 5px; /* Position relative to hilt right edge */
+    background-color: #777;
+    border-color: #333;
+     width: 8px;
+    height: 8px;
+}
+
+/* Example: Adjust button appearance based on Ornate Hilt Style */
+.hilt.hilt-ornate .button-activation {
+    background-color: silver;
+    border-color: #555;
+    box-shadow: inset 1px 1px 2px rgba(255,255,255,0.5);
+}
+.hilt.hilt-ornate .button-control1,
+.hilt.hilt-ornate .button-control2 {
+    background-color: black;
+    border: 1px solid gold;
+    top: 50px; /* Slightly lower on ornate hilt */
+}
+
+/* Example: Adjust button appearance based on Sleek Hilt Style */
+.hilt.hilt-sleek .button {
+    /* Maybe hide smaller buttons on sleek hilt? */
+    /* display: none; */
+    /* Or make them smaller/subtler */
+     width: 6px;
+     height: 6px;
+     border-width: 0.5px;
+}
+.hilt.hilt-sleek .button-activation {
+     width: 10px;
+     height: 10px;
+     background-color: #444;
+     border-color: #888;
+     top: 18px;
+}
+.hilt.hilt-sleek .button-control1 {
+    top: 35px;
+    left: 4px;
+}
+.hilt.hilt-sleek .button-control2 {
+     top: 35px;
+     right: 4px;
+}
